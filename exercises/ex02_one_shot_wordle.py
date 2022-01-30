@@ -1,13 +1,13 @@
-"""EX02 - One Shot Wordle"""
+"""EX02 - One Shot Wordle."""
 
 __author__ = "730489799"
 # Add variables for emojis
 WHITE_BOX: str = "\U00002B1C"
 GREEN_BOX: str = "\U0001F7E9"
 YELLOW_BOX: str = "\U0001F7E8"
-#Define variables for the word to be guessed and its length
+# Define variables for the word to be guessed and its length
 secret_word: str = "python"
-word_length: int  = len(secret_word)
+word_length: int = len(secret_word)
 # Prompt user with initial guess language
 guess: str = input(f"What is your { word_length }-letter guess? ")
 # Intialize empty string to store the emojis to be outputted to the user
@@ -30,7 +30,7 @@ while guess != secret_word or len(guess) != word_length:
                 exists: bool = False
                 check_index: int = 0
                 # Iterate through the secret word and see if the current letter exists in the word, if it does the loop will break
-                while check_index < word_length and exists == False:
+                while check_index < word_length and not exists:
                     if guess[str_index] == secret_word[check_index]:
                         exists = True
                     check_index += 1
@@ -39,7 +39,7 @@ while guess != secret_word or len(guess) != word_length:
                     emoji_result += YELLOW_BOX
                 else:
                     emoji_result += WHITE_BOX
-            #emoji_result += " "
+            # emoji_result += " "
             # Increment counter for overall iterator going through the guessed and secret word
             str_index += 1
         # Print emoji string with boxes and exit because the guess was incorrect as we check above
