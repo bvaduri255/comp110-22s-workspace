@@ -45,12 +45,12 @@ while guess != secret_word or len(guess) != word_length:
         # Print emoji string with boxes and exit because the guess was incorrect as we check above
         print(emoji_result)
         print("Not quite! Play again soon!")
-        exit()
-    
+        break
     else:
         # If the guessed word was not of the right length, we prompt the user again with the guess variable
         guess = input(f"That was not { word_length } letters! Try again: ")
 # If the program didn't exit with an incorrect guess of the correct length, it means that the guess was correct and thus
 # the control flow will come here and pring the green boxes and the success message
-print(word_length * GREEN_BOX)
-print("Woo! You got it!")
+if guess == secret_word:
+    print(word_length * GREEN_BOX)
+    print("Woo! You got it!")
