@@ -7,10 +7,9 @@ GREEN_BOX: str = "\U0001F7E9"
 YELLOW_BOX: str = "\U0001F7E8"
 secret_word: str = "codes"
 
+
 def contains_char(word: str, letter: str) -> bool:
-    '''Create function to check if a given letter exists in a word.'''
-
-
+    """Create function to check if a given letter exists in a word."""
     assert len(letter) == 1
     output: bool = False
     word_len: int = len(word)
@@ -23,11 +22,9 @@ def contains_char(word: str, letter: str) -> bool:
     
     return output
 
+
 def emojified(guess: str, secret: str) -> str:
-    '''Compares the guessed word from the user and the secret word to determine whether each letter in the guessed word 
-    is in secret_word, and whether it is in the correct position. Then print the corresponding emojis to the user.'''
-
-
+    """Compares the guessed word from the user and the secret word to determine whether each letter in the guessed word is in secret_word, and whether it is in the correct position. Then print the corresponding emojis to the user."""
     assert len(guess) == len(secret)
     guess_len: int = len(guess)
     output: str = ""
@@ -43,20 +40,18 @@ def emojified(guess: str, secret: str) -> str:
         counter += 1
     return output
 
+
 def input_guess(exp_length: int) -> str:
-    '''Prompt user for input, if the input is of an incorrect length kept prompting until the correct length word is inputted.'''
-
-
+    """Prompt user for input, if the input is of an incorrect length kept prompting until the correct length word is inputted."""
     guess: str = input(f"Enter a { exp_length } character word: ")
     while len(guess) != exp_length:
         guess = input(f"That wasn't { exp_length } chars! Try again: ")
     
     return guess
 
-def main() -> None:
-    '''The entrypoint of the program and the main loop'''
 
-    
+def main() -> None:
+    """The entrypoint of the program and the main loop."""
     turn_num: int = 0
     total_turns: int = 6
     has_not_won: bool = True
@@ -72,7 +67,7 @@ def main() -> None:
     
     if turn_num >= total_turns:
         print(f"X/{total_turns} - Sorry, try again tomorrow!")
-    
-        
+
+
 if __name__ == "__main__":
     main()
